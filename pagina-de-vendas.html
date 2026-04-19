@@ -1174,6 +1174,26 @@ nav { display: none; }
   font-weight: 300;
 }
 
+/* ── WHATSAPP FLOAT ── */
+#whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 998;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+#whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+#whatsapp-float svg { width: 30px; height: 30px; }
+
 /* ── GARANTIA ── */
 #garantia {
   background: var(--stone);
@@ -1458,19 +1478,9 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Receber bem em casa <span class="accent">sem estresse</span> e sem improviso.</h1>
-    <p>Tudo o que você precisa fazer, na ordem certa,<br>sem ficar presa na cozinha.</p>
+    <p>Tudo o que você precisa fazer, na ordem certa,<br><br>sem ficar presa na cozinha.</p>
     <div class="hero-actions">
       <a href="#oferta" class="btn-primary">Quero receber com alegria</a>
-    </div>
-    <p class="hero-urgency">Condições de lançamento até domingo, 26 de abril.</p>
-    <div class="timer" style="justify-content:center; margin-top:8px;">
-      <div class="timer-unit"><span class="timer-num" id="d1">00</span><span class="timer-lbl">dias</span></div>
-      <span class="timer-sep">:</span>
-      <div class="timer-unit"><span class="timer-num" id="h1">00</span><span class="timer-lbl">horas</span></div>
-      <span class="timer-sep">:</span>
-      <div class="timer-unit"><span class="timer-num" id="m1">00</span><span class="timer-lbl">min</span></div>
-      <span class="timer-sep">:</span>
-      <div class="timer-unit"><span class="timer-num" id="s1">00</span><span class="timer-lbl">seg</span></div>
     </div>
   </div>
 </section>
@@ -1979,6 +1989,14 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
     </div>
   </div>
 </section>
+
+<!-- WHATSAPP FLOAT -->
+<a id="whatsapp-float" href="https://wa.me/5528999676766?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20para%20adquirir%20o%20curso%20receber%20bem%20em%20casa" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.494.655 4.836 1.8 6.86L2 30l7.34-1.78A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2z" fill="#fff"/>
+    <path d="M23.5 19.97c-.3-.15-1.77-.873-2.044-.973-.273-.1-.472-.15-.671.15-.2.3-.771.973-.945 1.172-.174.2-.347.224-.647.075-.3-.15-1.267-.467-2.413-1.49-.892-.795-1.494-1.776-1.67-2.076-.175-.3-.018-.462.132-.61.134-.135.3-.35.448-.524.149-.175.199-.3.299-.499.099-.2.05-.374-.025-.524-.075-.15-.671-1.62-.92-2.22-.242-.582-.488-.503-.671-.512l-.572-.01c-.2 0-.523.075-.797.374-.273.3-1.044 1.02-1.044 2.488s1.069 2.887 1.218 3.086c.15.2 2.104 3.21 5.096 4.5.713.307 1.269.49 1.702.628.715.228 1.367.196 1.881.119.574-.086 1.77-.724 2.02-1.423.249-.699.249-1.299.174-1.423-.074-.125-.273-.2-.572-.35z" fill="#25D366"/>
+  </svg>
+</a>
 
 <!-- FOOTER -->
 <footer>

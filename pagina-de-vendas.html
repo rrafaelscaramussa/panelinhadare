@@ -1008,12 +1008,18 @@ nav { display: none; }
   background-size: contain;
 }
 
+.preco-valor-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
 .preco-cifrao {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.38em;
+  font-size: 1.3rem;
   font-weight: 700;
-  vertical-align: top;
-  padding-top: 0.55em;
+  color: var(--dourado);
+  padding-bottom: 0.5rem;
   letter-spacing: 0;
 }
 
@@ -1832,7 +1838,10 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
     <p class="preco-anchor">R$ 297</p>
     <div class="preco-principal">
       <span class="preco-parcelas">12x de</span>
-      <span class="preco-valor-big"><span class="preco-cifrao">R$</span>12,99</span>
+      <div class="preco-valor-wrap">
+        <span class="preco-cifrao">R$</span>
+        <span class="preco-valor-big">12,99</span>
+      </div>
     </div>
     <p class="preco-avista">ou <strong>R$127 à vista</strong></p>
 

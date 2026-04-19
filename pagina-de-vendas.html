@@ -608,12 +608,13 @@ nav { display: none; }
 /* ── CURSO ── */
 #curso {
   background: var(--cafe);
-  padding: 120px 48px;
+  padding: 80px 0 0;
 }
 
 .curso-header {
   max-width: 1080px;
-  margin: 0 auto 80px;
+  margin: 0 auto 64px;
+  padding: 0 48px;
 }
 
 .curso-header h2 {
@@ -621,7 +622,7 @@ nav { display: none; }
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 400;
   color: var(--bege);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   max-width: 600px;
 }
 
@@ -631,116 +632,142 @@ nav { display: none; }
   font-weight: 300;
 }
 
-/* TIMELINE */
-.timeline {
-  max-width: 1080px;
-  margin: 0 auto 100px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  position: relative;
+/* CARDS CARROSSEL */
+.curso-cards {
+  display: flex;
+  height: 540px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
 }
 
-.timeline::before {
-  content: '';
+.curso-cards::-webkit-scrollbar { display: none; }
+
+.curso-card {
+  flex: 0 0 22%;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid rgba(245,236,216,0.06);
+}
+
+.curso-card:nth-child(1) { background: linear-gradient(160deg, #3B2518 0%, #160C06 100%); }
+.curso-card:nth-child(2) { background: linear-gradient(160deg, #2B3020 0%, #111507 100%); }
+.curso-card:nth-child(3) { background: linear-gradient(160deg, #3D2A1A 0%, #180D06 100%); }
+.curso-card:nth-child(4) { background: linear-gradient(160deg, #252010 0%, #100D05 100%); }
+.curso-card:nth-child(5) { background: linear-gradient(160deg, #1A2B18 0%, #09120A 100%); }
+.curso-card:nth-child(6) { background: linear-gradient(160deg, #3A2215 0%, #170A05 100%); }
+.curso-card:nth-child(7) { background: linear-gradient(160deg, #2D2418 0%, #130E08 100%); }
+
+/* Estado padrão — info no rodapé */
+.curso-card-bottom {
   position: absolute;
-  top: 20px;
-  left: 8%;
-  right: 8%;
-  height: 1px;
-  background: rgba(196,163,90,0.2);
+  bottom: 0; left: 0; right: 0;
+  padding: 20px 24px 28px;
+  background: linear-gradient(to top, rgba(8,4,2,0.92) 0%, transparent 100%);
+  transition: opacity 0.3s;
 }
 
-.tl-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative;
-}
-
-.tl-dot {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(196,163,90,0.3);
-  background: rgba(245,236,216,0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 0.85rem;
-  color: rgba(196,163,90,0.5);
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s;
-}
-
-.tl-step:hover .tl-dot {
-  border-color: var(--dourado);
+.curso-card-num {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  font-weight: 600;
   color: var(--dourado);
-  background: rgba(196,163,90,0.08);
-}
-
-.tl-title {
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(245,236,216,0.35);
-  max-width: 80px;
-  line-height: 1.5;
+  margin-bottom: 10px;
+  display: block;
 }
 
-/* FERRAMENTAS */
-.ferramentas-header {
-  max-width: 1080px;
-  margin: 0 auto 40px;
+.curso-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  color: var(--bege);
+  font-weight: 400;
+  line-height: 1.25;
 }
 
-.ferramentas-grid {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.ferr-card {
-  aspect-ratio: 0.68;
-  background: rgba(245,236,216,0.03);
-  border: 1px solid rgba(196,163,90,0.12);
-  border-radius: 2px;
+/* Hover panel */
+.curso-card-panel {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 8, 4, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-end;
-  padding: 20px;
-  transition: border-color 0.3s, background 0.3s;
-  cursor: default;
-}
-.ferr-card:hover {
-  border-color: rgba(196,163,90,0.3);
-  background: rgba(245,236,216,0.05);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
 }
 
-.ferr-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  color: rgba(196,163,90,0.08);
-  line-height: 1;
-  margin-bottom: auto;
-  align-self: flex-start;
-  padding-top: 20px;
+.curso-card:hover .curso-card-panel {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.ferr-title {
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
+.curso-card:hover .curso-card-bottom {
+  opacity: 0;
+}
+
+.curso-card-panel-num {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--dourado);
   text-transform: uppercase;
-  color: rgba(245,236,216,0.3);
-  text-align: center;
-  line-height: 1.5;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.curso-card-panel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  color: var(--bege);
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.curso-card-panel-desc {
+  font-size: 0.85rem;
+  color: rgba(245,236,216,0.62);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.curso-card-panel-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  border: 1px solid rgba(196,163,90,0.35);
+  border-radius: 999px;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  width: fit-content;
+}
+
+@media (max-width: 767px) {
+  #curso { padding: 64px 0 0; }
+  .curso-header { padding: 0 24px; margin-bottom: 40px; }
+  .curso-cards { height: 460px; }
+  .curso-card { flex: 0 0 82%; }
+  /* No mobile mostra sempre o painel */
+  .curso-card-panel {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .curso-card-bottom { opacity: 0 !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1080px) {
+  .curso-card { flex: 0 0 33%; }
 }
 
 /* ── PARA QUEM ── */
@@ -1274,30 +1301,103 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
   <div class="curso-header">
     <span class="section-label gold">O curso</span>
     <div class="divider"></div>
-    <h2>Aulas práticas e objetivas, uma para cada etapa.</h2>
-    <p>Do convite ao pós-recepção — tudo mapeado.</p>
+    <h2>Sete aulas. Uma para cada etapa.</h2>
+    <p>Do convite ao pós-recepção — tudo mapeado, na ordem certa.</p>
   </div>
 
-  <div class="timeline">
-    <div class="tl-step"><div class="tl-dot">1</div><span class="tl-title">Planejamento</span></div>
-    <div class="tl-step"><div class="tl-dot">2</div><span class="tl-title">Cardápio</span></div>
-    <div class="tl-step"><div class="tl-dot">3</div><span class="tl-title">Compras</span></div>
-    <div class="tl-step"><div class="tl-dot">4</div><span class="tl-title">Casa</span></div>
-    <div class="tl-step"><div class="tl-dot">5</div><span class="tl-title">Recepção</span></div>
-    <div class="tl-step"><div class="tl-dot">6</div><span class="tl-title">Pós-Recepção</span></div>
-  </div>
+  <div class="curso-cards">
 
-  <div class="ferramentas-header">
-    <span class="section-label gold">7 ferramentas para aplicar de imediato</span>
-  </div>
-  <div class="ferramentas-grid">
-    <div class="ferr-card"><span class="ferr-num">01</span><span class="ferr-title">Diagnóstico da Anfitriã</span></div>
-    <div class="ferr-card"><span class="ferr-num">02</span><span class="ferr-title">Planner de Recepção</span></div>
-    <div class="ferr-card"><span class="ferr-num">03</span><span class="ferr-title">Guia de Cardápio</span></div>
-    <div class="ferr-card"><span class="ferr-num">04</span><span class="ferr-title">Checklist de Compras</span></div>
-    <div class="ferr-card"><span class="ferr-num">05</span><span class="ferr-title">Checklist da Casa</span></div>
-    <div class="ferr-card"><span class="ferr-num">06</span><span class="ferr-title">Roteiro da Recepção</span></div>
-    <div class="ferr-card"><span class="ferr-num">07</span><span class="ferr-title">Plano Pós-Recepção</span></div>
+    <div class="curso-card">
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 01 · Autoconhecimento</span>
+        <div class="curso-card-title">Diagnóstico da Anfitriã</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 01 · Autoconhecimento</span>
+        <div class="curso-card-panel-title">Diagnóstico da Anfitriã</div>
+        <p class="curso-card-panel-desc">Seu ponto de partida. Você entende o seu estilo de receber, seus pontos fortes e o que ainda trava — antes de planejar qualquer coisa.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 02 · Planejamento</span>
+        <div class="curso-card-title">Planner Receber Sem Estresse</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 02 · Planejamento</span>
+        <div class="curso-card-panel-title">Planner Receber Sem Estresse</div>
+        <p class="curso-card-panel-desc">Do convite ao dia da recepção — cada tarefa no momento certo. Você para de improvisar e começa a chegar descansada.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 03 · Cardápio</span>
+        <div class="curso-card-title">Guia Cardápio Sem Sofrimento</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 03 · Cardápio</span>
+        <div class="curso-card-panel-title">Guia Cardápio Sem Sofrimento</div>
+        <p class="curso-card-panel-desc">Menu que te liberta da cozinha. Como montar um cardápio que impressiona sem te prender atrás do fogão durante a festa.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 04 · Compras</span>
+        <div class="curso-card-title">Checklist Compra Sem Caos</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 04 · Compras</span>
+        <div class="curso-card-panel-title">Checklist Compra Sem Caos</div>
+        <p class="curso-card-panel-desc">Lista estratégica por categoria. Você entra no mercado com clareza e sai sem esquecer nada — e sem gastar além do necessário.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 05 · Organização</span>
+        <div class="curso-card-title">Checklist Casa Pronta Para Receber</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 05 · Organização</span>
+        <div class="curso-card-panel-title">Checklist Casa Pronta Para Receber</div>
+        <p class="curso-card-panel-desc">Cada ambiente preparado com acolhimento. Sua casa não precisa ser perfeita — precisa estar pronta para receber com intenção.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 06 · A Recepção</span>
+        <div class="curso-card-title">Roteiro Anfitriã Presente</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 06 · A Recepção</span>
+        <div class="curso-card-panel-title">Roteiro Anfitriã Presente</div>
+        <p class="curso-card-panel-desc">Conduza o encontro com leveza. Saiba como receber cada pessoa, manter a energia da casa e ainda curtir cada momento.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card">
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 07 · Pós-Recepção</span>
+        <div class="curso-card-title">Plano Depois que a Porta Fecha</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 07 · Pós-Recepção</span>
+        <div class="curso-card-panel-title">Plano Depois que a Porta Fecha</div>
+        <p class="curso-card-panel-desc">Encerre com leveza e gratidão. Como descansar, organizar e já guardar aprendizados para a próxima recepção ser ainda melhor.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
   </div>
 </section>
 

@@ -432,6 +432,71 @@ nav { display: none; }
   padding-left: 16px;
 }
 
+.antes-foto {
+  position: relative;
+}
+
+.antes-bubbles {
+  position: absolute;
+  bottom: 24px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.antes-bubble {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(245,236,216,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245,236,216,0.3);
+  border-radius: 12px 12px 12px 2px;
+  padding: 9px 16px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(0.78rem, 1.8vw, 0.9rem);
+  color: rgba(245,236,216,0.92);
+}
+
+.antes-bubble:nth-child(even) {
+  align-self: flex-end;
+  border-radius: 12px 12px 2px 12px;
+}
+
+.virada-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.virada-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245,236,216,0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245,236,216,0.22);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: clamp(0.82rem, 1.6vw, 0.92rem);
+  color: rgba(245,236,216,0.92);
+  font-weight: 400;
+}
+
+.virada-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8BAF7C;
+  flex-shrink: 0;
+}
+
 @media (min-width: 768px) {
   .antes-inner {
     grid-template-columns: 1fr 1fr;
@@ -1156,16 +1221,16 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
   <div class="antes-inner">
     <div class="antes-foto">
       <img src="antes-bg.png" alt="">
+      <div class="antes-bubbles">
+        <span class="antes-bubble">O que vou servir?</span>
+        <span class="antes-bubble">Vai dar tempo?</span>
+        <span class="antes-bubble">A casa está boa?</span>
+        <span class="antes-bubble">Vai sair como eu imagino?</span>
+      </div>
     </div>
     <div class="antes-copy">
       <h2>Essa é você hoje?</h2>
       <p class="antes-intro">Você ama receber — mas quando o convite sai, a cabeça dispara. A semana começa cheia de vontade e termina em correria, cansaço e aquela sensação de que você ficou de fora da própria festa.</p>
-      <ul class="antes-perguntas">
-        <li>O que vou servir?</li>
-        <li>Vai dar tempo?</li>
-        <li>A casa está boa?</li>
-        <li>Vai sair como eu imagino?</li>
-      </ul>
       <p class="antes-fechamento">Receber bem não deveria ser assim. E não precisa ser.</p>
     </div>
   </div>
@@ -1175,6 +1240,12 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 <section id="virada">
   <div class="virada-inner">
     <h2>Imagina abrir a porta<br>e estar realmente presente.</h2>
+    <div class="virada-badges">
+      <span class="virada-badge"><span class="virada-dot"></span>Organizada</span>
+      <span class="virada-badge"><span class="virada-dot"></span>Sem estresse</span>
+      <span class="virada-badge"><span class="virada-dot"></span>De drink na mão</span>
+      <span class="virada-badge"><span class="virada-dot"></span>Presente</span>
+    </div>
     <p>Com cardápio definido, lista na mão e a casa pronta com calma — você não improvisa. Você recebe.</p>
     <p>Cada detalhe no lugar, na ordem certa. E quando a campainha toca, você está lá — não na cozinha, não na cabeça. Na sua própria festa.</p>
     <p class="curso-nome">Esse é o objetivo do Receber Bem em Casa.</p>

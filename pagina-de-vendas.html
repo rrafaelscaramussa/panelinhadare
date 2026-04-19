@@ -798,25 +798,10 @@ nav { display: none; }
 @media (max-width: 767px) {
   #curso { padding: 64px 0 0; }
   .curso-header { padding: 0 24px; margin-bottom: 40px; }
-  .curso-cards {
-    overflow-x: auto;
-    overflow-y: hidden;
-    height: 460px;
-    padding: 0 0 20px;
-  }
-  .curso-track {
-    animation: none !important;
-    padding-left: 20px;
-    gap: 12px;
-  }
-  /* Remove clones no mobile (esconde via CSS) */
-  .curso-track .curso-card[aria-hidden="true"] { display: none; }
-  .curso-card { flex: 0 0 78vw; width: 78vw; }
-  /* No mobile painel sempre visível */
-  .curso-card-panel {
-    opacity: 1 !important;
-    transform: none !important;
-  }
+  .curso-cards { height: 440px; padding: 0; }
+  .curso-track { gap: 16px; padding-left: 20px; }
+  .curso-card { flex: 0 0 76vw; width: 76vw; }
+  .curso-card-panel { opacity: 1 !important; transform: none !important; }
   .curso-card-bottom { display: none; }
 }
 

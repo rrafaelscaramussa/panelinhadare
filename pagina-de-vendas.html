@@ -197,6 +197,51 @@ nav { display: none; }
   letter-spacing: 0.08em;
 }
 
+/* STICKY COUNTDOWN BAR */
+#sticky-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: var(--cafe);
+  border-bottom: 1px solid rgba(196,163,90,0.2);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 24px;
+}
+#sticky-bar.visible { display: flex; }
+.sticky-bar-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245,236,216,0.6);
+  font-weight: 500;
+}
+.sticky-bar-timer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--dourado);
+}
+.sticky-bar-sep { color: rgba(196,163,90,0.4); }
+.sticky-bar-cta {
+  background: var(--dourado);
+  color: var(--cafe);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 /* TIMER */
 .timer {
   display: flex;
@@ -376,7 +421,7 @@ nav { display: none; }
 }
 
 .antes-copy {
-  padding: 56px 24px 72px;
+  padding: 40px 24px 48px;
 }
 
 .antes-copy h2 {
@@ -555,8 +600,8 @@ nav { display: none; }
 
 #virada .curso-nome {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-  color: var(--dourado);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: #F5ECD8;
   font-style: italic;
   margin-top: 40px;
   font-weight: 400;
@@ -592,10 +637,10 @@ nav { display: none; }
 
 .renata-copy p {
   font-size: 0.97rem;
-  color: var(--text-muted);
+  color: #4A3828;
   line-height: 1.9;
   margin-bottom: 20px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .renata-copy strong {
@@ -615,6 +660,7 @@ nav { display: none; }
   max-width: 1080px;
   margin: 0 auto 48px;
   padding: 0 48px;
+  text-align: center;
 }
 
 .curso-header h2 {
@@ -1222,9 +1268,9 @@ nav { display: none; }
 .acc-body-inner {
   padding: 0 0 24px;
   font-size: 0.92rem;
-  color: var(--text-muted);
+  color: #4A3828;
   line-height: 1.85;
-  font-weight: 300;
+  font-weight: 400;
 }
 .acc-item.open .acc-body { max-height: 200px; }
 
@@ -1323,7 +1369,7 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
   /* Bonus section mobile */
   #bonus-section { padding: 8px 20px !important; }
   #bonus { grid-template-columns: 1fr; gap: 12px; }
-  #bonus img { max-width: 180px !important; }
+  #bonus img { max-width: 260px !important; }
   .bonus-phones { justify-content: center; }
   .phone { width: 120px; }
 
@@ -1360,6 +1406,18 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 </style>
 </head>
 <body>
+
+<!-- STICKY BAR -->
+<div id="sticky-bar">
+  <span class="sticky-bar-text">Oferta encerra em</span>
+  <div class="sticky-bar-timer">
+    <span id="d4">00</span><span class="sticky-bar-sep">d</span>
+    <span id="h4">00</span><span class="sticky-bar-sep">h</span>
+    <span id="m4">00</span><span class="sticky-bar-sep">m</span>
+    <span id="s4">00</span><span class="sticky-bar-sep">s</span>
+  </div>
+  <a href="#oferta" class="sticky-bar-cta">Garantir vaga</a>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -1437,7 +1495,7 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 <!-- TRANSFORMAÇÃO -->
 <section id="virada">
   <div class="virada-inner">
-    <h2>Imagina abrir a porta<br>e estar realmente presente.</h2>
+    <h2>Agora, imagina abrir a porta<br>e estar realmente presente.</h2>
     <div class="virada-badges">
       <span class="virada-badge"><span class="virada-dot"></span>Organizada</span>
       <span class="virada-badge"><span class="virada-dot"></span>Sem estresse</span>
@@ -1807,7 +1865,7 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
     <p>Ao entrar no curso, você acessa a <strong>Comunidade Receber Bem em Casa</strong> no WhatsApp — um espaço para tirar dúvidas, compartilhar suas recepções e se inspirar com outras anfitriãs.</p>
   </div>
   <div class="bonus-phones">
-    <img src="print_editado.png" alt="Comunidade Receber Bem em Casa no WhatsApp" style="width:100%; max-width:320px; display:block; margin:0 auto; border-radius: 24px;">
+    <img src="iphone-mockup.png" alt="Comunidade Receber Bem em Casa no WhatsApp" style="width:100%; max-width:300px; display:block; margin:0 auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));">
   </div>
 </div>
 </section>
@@ -1923,13 +1981,20 @@ function tick() {
   const h = Math.floor((diff % 86400000) / 3600000);
   const m = Math.floor((diff % 3600000) / 60000);
   const s = Math.floor((diff % 60000) / 1000);
-  ['d1','d2','d3'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(d); });
-  ['h1','h2','h3'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(h); });
-  ['m1','m2','m3'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(m); });
-  ['s1','s2','s3'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(s); });
+  ['d1','d2','d3','d4'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(d); });
+  ['h1','h2','h3','h4'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(h); });
+  ['m1','m2','m3','m4'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(m); });
+  ['s1','s2','s3','s4'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(s); });
 }
 setInterval(tick, 1000);
 tick();
+
+// Sticky bar
+const stickyBar = document.getElementById('sticky-bar');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 600) stickyBar.classList.add('visible');
+  else stickyBar.classList.remove('visible');
+}, { passive: true });
 
 document.querySelectorAll('.acc-btn').forEach(btn => {
   btn.addEventListener('click', () => {

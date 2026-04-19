@@ -154,21 +154,21 @@ nav { display: none; }
 
 .btn-primary {
   display: inline-block;
-  background: #6B8F5E;
-  color: #fff;
+  background: #2ECC71;
+  color: #0A1A0E;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
   padding: 16px 36px;
-  border-radius: 2px;
+  border-radius: 999px;
   transition: background 0.3s, transform 0.2s;
   border: none;
   cursor: pointer;
 }
-.btn-primary:hover { background: #7DA06E; transform: translateY(-1px); }
+.btn-primary:hover { background: #27AE60; transform: translateY(-1px); }
 
 .btn-ghost {
   display: inline-flex;
@@ -1234,7 +1234,16 @@ nav { display: none; }
   color: var(--cafe);
 }
 
+.faq-card {
+  border: 1px solid rgba(61,47,36,0.18);
+  border-radius: 20px;
+  padding: 0 32px;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
 .acc-item { border-bottom: 1px solid rgba(61,47,36,0.1); }
+.acc-item:last-child { border-bottom: none; }
 
 .acc-btn {
   width: 100%;
@@ -1256,14 +1265,15 @@ nav { display: none; }
 .acc-btn:hover { color: var(--terracota); }
 
 .acc-icon {
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(61,47,36,0.15);
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(196,163,90,0.5);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 300;
   color: var(--dourado);
   flex-shrink: 0;
   transition: transform 0.3s, background 0.3s;
@@ -1941,25 +1951,31 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
       <h2>Perguntas frequentes</h2>
     </div>
 
-    <div class="acc-item">
-      <button class="acc-btn">Por quanto tempo terei acesso ao curso? <span class="acc-icon">+</span></button>
-      <div class="acc-body"><div class="acc-body-inner">O acesso é de 1 ano. Você assiste no seu ritmo, quando e onde quiser.</div></div>
+    <div class="faq-card">
+      <div class="acc-item">
+        <button class="acc-btn">Por quanto tempo terei acesso ao curso? <span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">O acesso é de 1 ano. Você assiste no seu ritmo, quando e onde quiser.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">Como vou acessar o curso após a compra? <span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Você receberá um e-mail com os dados de acesso à plataforma logo após a confirmação do pagamento.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">Quais são as formas de pagamento? <span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Cartão de crédito em até 12x ou Pix à vista.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">E se eu me arrepender? <span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Você tem 7 dias de garantia. Basta enviar um e-mail para panelinhadare@gmail.com e devolvemos 100% do valor pago, sem perguntas.</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">Tenho dúvidas antes de comprar. Com quem falo? <span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="acc-body-inner">Manda uma mensagem no <a href="https://wa.me/5528999676766" target="_blank" style="color: var(--dourado); text-decoration: underline;">WhatsApp (28) 99967-6766</a>.</div></div>
+      </div>
     </div>
-    <div class="acc-item">
-      <button class="acc-btn">Como vou acessar o curso após a compra? <span class="acc-icon">+</span></button>
-      <div class="acc-body"><div class="acc-body-inner">Você receberá um e-mail com os dados de acesso à plataforma logo após a confirmação do pagamento.</div></div>
-    </div>
-    <div class="acc-item">
-      <button class="acc-btn">Quais são as formas de pagamento? <span class="acc-icon">+</span></button>
-      <div class="acc-body"><div class="acc-body-inner">Cartão de crédito em até 12x ou Pix à vista.</div></div>
-    </div>
-    <div class="acc-item">
-      <button class="acc-btn">E se eu me arrepender? <span class="acc-icon">+</span></button>
-      <div class="acc-body"><div class="acc-body-inner">Você tem 7 dias de garantia. Basta enviar um e-mail para panelinhadare@gmail.com e devolvemos 100% do valor pago, sem perguntas.</div></div>
-    </div>
-    <div class="acc-item">
-      <button class="acc-btn">Tenho dúvidas antes de comprar. Com quem falo? <span class="acc-icon">+</span></button>
-      <div class="acc-body"><div class="acc-body-inner">Manda uma mensagem no <a href="https://wa.me/5528999676766" target="_blank" style="color: var(--dourado); text-decoration: underline;">WhatsApp (28) 99967-6766</a>.</div></div>
+
+    <div style="text-align:center;">
+      <a href="#oferta" class="btn-primary">Quero receber com alegria</a>
     </div>
   </div>
 </section>

@@ -861,18 +861,82 @@ footer img { height: 30px; opacity: 0.45; }
 footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.18); }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  #problema, .renata-inner, #bonus, .garantia-inner, .paraquem-inner { grid-template-columns: 1fr; gap: 48px; }
-  #renata { grid-template-columns: 1fr; }
-  .renata-img { aspect-ratio: 4/3; max-width: 100%; }
-  .ferramentas-grid { grid-template-columns: repeat(2, 1fr); }
-  .mockups-grid { grid-template-columns: repeat(2, 1fr); }
-  .timeline { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+/* ── MOBILE FIRST ── */
+@media (max-width: 767px) {
+  /* Hero */
+  #hero { align-items: flex-end; }
+  .hero-content { padding: 0 24px 56px; text-align: center; }
+  .hero-content h1 { font-size: clamp(2rem, 9vw, 3rem); }
+  .hero-content p { font-size: 1rem; }
+  .hero-content p br { display: none; }
+  .hero-actions { flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+  .btn-primary, .btn-ghost { width: 100%; text-align: center; justify-content: center; }
+  .timer { gap: 8px; }
+  .timer-num { font-size: 1.6rem; }
+
+  /* Sections padding */
+  section[style*="padding: 120px 48px"],
+  #virada, #curso, #paraquem, #oferta, #garantia, #faq, #cta-final {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  /* Grids para 1 coluna */
+  #problema, #renata, #bonus, .garantia-inner, .paraquem-inner,
+  div[style*="grid-template-columns:1fr 1fr"],
+  div[style*="grid-template-columns:400px 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* Ferramentas */
+  .ferramentas-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .ferr-card { aspect-ratio: 0.8; }
+
+  /* Mockups oferta */
+  .mockups-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  /* Timeline */
+  .timeline { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .timeline::before { display: none; }
-  .hero-content { padding: 0 24px 64px; }
-  #problema, #virada, #renata, #curso, #paraquem, #bonus, #oferta, #garantia, #faq, #cta-final { padding-left: 24px; padding-right: 24px; }
+
+  /* Renata img */
+  .renata-img { aspect-ratio: 4/3; }
+
+  /* Phones bonus */
+  .bonus-phones { justify-content: center; }
+  .phone { width: 120px; }
+
+  /* Oferta */
+  .preco-valor { font-size: 2.4rem; }
+
+  /* FAQ */
+  .acc-btn { font-size: 0.85rem; }
+
+  /* CTA final */
+  #cta-final h2 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .cta-final-inner { max-width: 100%; }
+
+  /* Footer */
+  footer { padding: 40px 20px; }
+}
+
+/* ── TABLET ── */
+@media (min-width: 768px) and (max-width: 1080px) {
+  .hero-content { padding: 0 40px 72px; }
+  .hero-content h1 { font-size: clamp(2.6rem, 5vw, 4rem); }
+  .ferramentas-grid { grid-template-columns: repeat(3, 1fr); }
+  .timeline { grid-template-columns: repeat(3, 1fr); }
+  .timeline::before { display: none; }
+  section[style*="padding: 120px 48px"],
+  #virada, #curso, #paraquem, #oferta, #garantia, #faq, #cta-final {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
 }
 </style>
 </head>

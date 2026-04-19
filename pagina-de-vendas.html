@@ -1008,11 +1008,84 @@ nav { display: none; }
 }
 
 .oferta-urgency {
-  font-size: 0.68rem;
-  color: rgba(245,236,216,0.22);
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  color: rgba(245,236,216,0.55);
+  letter-spacing: 0.1em;
   margin-top: 20px;
   text-transform: uppercase;
+}
+
+/* ── URGENCY BANNER ── */
+.urgency-banner {
+  background: var(--cafe);
+  padding: 48px 24px 0;
+}
+
+.urgency-card {
+  max-width: 540px;
+  margin: 0 auto;
+  background: rgba(196,163,90,0.06);
+  border: 1px solid rgba(196,163,90,0.25);
+  border-radius: 20px;
+  padding: 36px 40px;
+  text-align: center;
+}
+
+.urgency-icon {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.urgency-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.urgency-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.urgency-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  color: var(--bege);
+  font-weight: 400;
+  line-height: 1;
+  min-width: 2ch;
+}
+
+.urgency-lbl {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,236,216,0.35);
+  display: block;
+  margin-top: 6px;
+}
+
+.urgency-sep {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: rgba(196,163,90,0.4);
+  align-self: flex-start;
+  padding-top: 4px;
+}
+
+.urgency-sub {
+  font-size: 0.78rem;
+  color: rgba(245,236,216,0.4);
+  font-weight: 300;
 }
 
 /* ── GARANTIA ── */
@@ -1706,6 +1779,24 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 </div>
 </section>
 
+<!-- URGENCY BANNER -->
+<div class="urgency-banner">
+  <div class="urgency-card">
+    <span class="urgency-icon">🕯️</span>
+    <p class="urgency-title">Oferta de lançamento<br>encerrando em breve</p>
+    <div class="urgency-timer">
+      <div><span class="urgency-num" id="d2">00</span><span class="urgency-lbl">dias</span></div>
+      <span class="urgency-sep">·</span>
+      <div><span class="urgency-num" id="h2">00</span><span class="urgency-lbl">horas</span></div>
+      <span class="urgency-sep">·</span>
+      <div><span class="urgency-num" id="m2">00</span><span class="urgency-lbl">min</span></div>
+      <span class="urgency-sep">·</span>
+      <div><span class="urgency-num" id="s2">00</span><span class="urgency-lbl">seg</span></div>
+    </div>
+    <p class="urgency-sub">Condições especiais disponíveis apenas até domingo, 26 de abril.</p>
+  </div>
+</div>
+
 <!-- OFERTA -->
 <section id="oferta">
   <div class="oferta-card">
@@ -1720,7 +1811,7 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
     <p class="preco-avista">ou <strong>R$127 à vista</strong></p>
 
     <ul class="oferta-checklist">
-      <li>7 aulas em vídeo com acesso vitalício</li>
+      <li>7 aulas em vídeo</li>
       <li>Diagnóstico da Anfitriã</li>
       <li>Planner Receber Sem Estresse</li>
       <li>Guia Cardápio Sem Sofrimento</li>
@@ -1733,15 +1824,6 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 
     <a href="#" class="btn-primary" style="display:block; text-align:center;">Quero receber com alegria →</a>
     <p class="oferta-urgency">Condições de lançamento até domingo, 26 de abril.</p>
-    <div class="timer" style="margin-top:16px; justify-content:center;">
-      <div class="timer-unit"><span class="timer-num" id="d2">00</span><span class="timer-lbl">dias</span></div>
-      <span class="timer-sep">:</span>
-      <div class="timer-unit"><span class="timer-num" id="h2">00</span><span class="timer-lbl">horas</span></div>
-      <span class="timer-sep">:</span>
-      <div class="timer-unit"><span class="timer-num" id="m2">00</span><span class="timer-lbl">min</span></div>
-      <span class="timer-sep">:</span>
-      <div class="timer-unit"><span class="timer-num" id="s2">00</span><span class="timer-lbl">seg</span></div>
-    </div>
   </div>
 </section>
 

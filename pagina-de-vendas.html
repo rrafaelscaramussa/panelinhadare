@@ -204,39 +204,44 @@ nav { display: none; }
   left: 0;
   width: 100%;
   z-index: 999;
-  background: var(--cafe);
-  border-bottom: 1px solid rgba(196,163,90,0.2);
-  display: none;
+  background: #1A120A;
+  border-bottom: 1px solid rgba(196,163,90,0.15);
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
   padding: 10px 24px;
 }
-#sticky-bar.visible { display: flex; }
 .sticky-bar-text {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(245,236,216,0.6);
+  color: rgba(245,236,216,0.55);
   font-weight: 500;
 }
 .sticky-bar-timer {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: var(--dourado);
+  gap: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bege);
 }
-.sticky-bar-sep { color: rgba(196,163,90,0.4); }
+.sticky-bar-unit { display: flex; flex-direction: column; align-items: center; min-width: 36px; }
+.sticky-bar-num { font-size: 1rem; font-weight: 700; color: var(--bege); line-height: 1; }
+.sticky-bar-lbl { font-size: 0.48rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,236,216,0.4); margin-top: 2px; }
+.sticky-bar-dot { font-size: 1rem; color: rgba(196,163,90,0.5); padding: 0 2px; align-self: flex-start; padding-top: 2px; }
 .sticky-bar-cta {
-  background: var(--dourado);
-  color: var(--cafe);
+  background: #2ECC71;
+  color: #0A1A0E;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 8px 18px;
+  padding: 9px 20px;
   border-radius: 999px;
   text-decoration: none;
   white-space: nowrap;
@@ -273,7 +278,7 @@ nav { display: none; }
 
 /* ── SECTION HELPERS ── */
 .section-label {
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -670,6 +675,8 @@ nav { display: none; }
   color: var(--bege);
   margin-bottom: 12px;
   max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .curso-header p {
@@ -1411,10 +1418,13 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 <div id="sticky-bar">
   <span class="sticky-bar-text">Oferta encerra em</span>
   <div class="sticky-bar-timer">
-    <span id="d4">00</span><span class="sticky-bar-sep">d</span>
-    <span id="h4">00</span><span class="sticky-bar-sep">h</span>
-    <span id="m4">00</span><span class="sticky-bar-sep">m</span>
-    <span id="s4">00</span><span class="sticky-bar-sep">s</span>
+    <div class="sticky-bar-unit"><span class="sticky-bar-num" id="d4">00</span><span class="sticky-bar-lbl">dias</span></div>
+    <span class="sticky-bar-dot">·</span>
+    <div class="sticky-bar-unit"><span class="sticky-bar-num" id="h4">00</span><span class="sticky-bar-lbl">horas</span></div>
+    <span class="sticky-bar-dot">·</span>
+    <div class="sticky-bar-unit"><span class="sticky-bar-num" id="m4">00</span><span class="sticky-bar-lbl">min</span></div>
+    <span class="sticky-bar-dot">·</span>
+    <div class="sticky-bar-unit"><span class="sticky-bar-num" id="s4">00</span><span class="sticky-bar-lbl">seg</span></div>
   </div>
   <a href="#oferta" class="sticky-bar-cta">Garantir vaga</a>
 </div>
@@ -1989,12 +1999,6 @@ function tick() {
 setInterval(tick, 1000);
 tick();
 
-// Sticky bar
-const stickyBar = document.getElementById('sticky-bar');
-window.addEventListener('scroll', function() {
-  if (window.scrollY > 600) stickyBar.classList.add('visible');
-  else stickyBar.classList.remove('visible');
-}, { passive: true });
 
 document.querySelectorAll('.acc-btn').forEach(btn => {
   btn.addEventListener('click', () => {

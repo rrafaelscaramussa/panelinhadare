@@ -1008,6 +1008,30 @@ nav { display: none; }
   background-size: contain;
 }
 
+.preco-cifrao {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.42em;
+  font-weight: 600;
+  vertical-align: super;
+  letter-spacing: 0;
+}
+
+.oferta-garantia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 0.78rem;
+  color: rgba(245,236,216,0.45);
+  font-weight: 300;
+}
+
+.oferta-garantia svg {
+  flex-shrink: 0;
+  color: rgba(196,163,90,0.5);
+}
+
 .oferta-urgency {
   font-size: 0.72rem;
   color: rgba(245,236,216,0.55);
@@ -1784,7 +1808,6 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 <!-- URGENCY BANNER -->
 <div class="urgency-banner">
   <div class="urgency-card">
-    <span class="urgency-icon">🕯️</span>
     <p class="urgency-title">Oferta de lançamento<br>encerrando em breve</p>
     <div class="urgency-timer">
       <div><span class="urgency-num" id="d2">00</span><span class="urgency-lbl">dias</span></div>
@@ -1803,12 +1826,12 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 <section id="oferta">
   <div class="oferta-card">
     <h2 class="oferta-card-title">Receber Bem em Casa</h2>
-    <p class="oferta-card-sub">Acesso vitalício ao curso + todos os bônus inclusos</p>
+    <p class="oferta-card-sub">Acesso ao curso + todos os bônus inclusos</p>
 
     <p class="preco-anchor">R$ 297</p>
     <div class="preco-principal">
       <span class="preco-parcelas">12x de</span>
-      <span class="preco-valor-big">R$12,99</span>
+      <span class="preco-valor-big"><span class="preco-cifrao">R$</span>12,99</span>
     </div>
     <p class="preco-avista">ou <strong>R$127 à vista</strong></p>
 
@@ -1824,24 +1847,13 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
       <li>Comunidade exclusiva no WhatsApp</li>
     </ul>
 
-    <a href="#" class="btn-primary" style="display:block; text-align:center;">Quero receber com alegria →</a>
-    <p class="oferta-urgency">Condições de lançamento até domingo, 26 de abril.</p>
-  </div>
-</section>
+    <a href="#" class="btn-primary" style="display:block; text-align:center;">Quero receber com alegria</a>
 
-<!-- GARANTIA -->
-<section id="garantia" style="background: var(--stone); padding: 120px 48px;">
-<div class="garantia-inner">
-  <div class="garantia-left">
-    <span class="section-label">Garantia</span>
-    <div class="divider"></div>
-    <h2>7 dias de garantia total.</h2>
+    <div class="oferta-garantia">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>7 dias de garantia total. Devolução sem perguntas.</span>
+    </div>
   </div>
-  <div class="garantia-right">
-    <p>Se em 7 dias você sentir que o curso não é para você, devolvemos 100% do seu dinheiro. Sem burocracia, sem perguntas.</p>
-    <p class="destaque">Você não tem nada a perder. Só a receber.</p>
-  </div>
-</div>
 </section>
 
 <!-- FAQ -->
@@ -1876,34 +1888,6 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
     <div class="acc-item">
       <button class="acc-btn">Tenho dúvidas antes de comprar. Com quem falo? <span class="acc-icon">+</span></button>
       <div class="acc-body"><div class="acc-body-inner">Manda uma mensagem no WhatsApp (28) 99967-6766.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<section id="cta-final">
-  <div class="cta-final-inner">
-    <span class="section-label gold">Está pronta?</span>
-    <div class="divider"></div>
-    <h2>Está na hora de receber com alegria.</h2>
-    <p>Você já adiou vezes demais aquela reunião com os amigos, aquele almoço em família, aquele jantar que você tanto queria fazer.</p>
-
-    <div class="preco-valor" style="margin-bottom:8px;"><span>12x de </span>R,99</div>
-    <p class="preco-avista" style="margin-bottom:40px;">ou <strong>R à vista</strong></p>
-
-    <div class="hero-actions">
-      <a href="#oferta" class="btn-primary">Quero receber com alegria →</a>
-    </div>
-
-    <p class="oferta-urgency" style="margin-top:24px;">Condições de lançamento até domingo, 26 de abril.</p>
-    <div class="timer" style="margin-top:16px;">
-      <div class="timer-unit"><span class="timer-num" id="d3">00</span><span class="timer-lbl">dias</span></div>
-      <span class="timer-sep">:</span>
-      <div class="timer-unit"><span class="timer-num" id="h3">00</span><span class="timer-lbl">horas</span></div>
-      <span class="timer-sep">:</span>
-      <div class="timer-unit"><span class="timer-num" id="m3">00</span><span class="timer-lbl">min</span></div>
-      <span class="timer-sep">:</span>
-      <div class="timer-unit"><span class="timer-num" id="s3">00</span><span class="timer-lbl">seg</span></div>
     </div>
   </div>
 </section>

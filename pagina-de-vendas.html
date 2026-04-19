@@ -634,26 +634,38 @@ nav { display: none; }
 
 /* CARDS CARROSSEL */
 .curso-cards {
-  display: flex;
+  overflow: hidden;
   height: 540px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 0 48px 40px;
-  gap: 0;
+  padding: 0 0 40px;
+  position: relative;
 }
 
-.curso-cards::-webkit-scrollbar { display: none; }
+/* TRACK — elemento que desliza */
+.curso-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  animation: curso-scroll 48s linear infinite;
+  gap: 10px;
+  padding-left: 48px;
+}
+
+.curso-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes curso-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 
 .curso-card {
-  flex: 0 0 22%;
-  scroll-snap-align: start;
+  flex: 0 0 280px;
+  width: 280px;
+  flex-shrink: 0;
   position: relative;
   overflow: hidden;
   border-radius: 16px;
-  margin-right: 10px;
-  flex-shrink: 0;
 }
 
 .curso-card-bg-num {
@@ -683,13 +695,13 @@ nav { display: none; }
   opacity: 0.04;
 }
 
-.curso-card:nth-child(1) { background: linear-gradient(160deg, #3B2518 0%, #160C06 100%); }
-.curso-card:nth-child(2) { background: linear-gradient(160deg, #2B3020 0%, #111507 100%); }
-.curso-card:nth-child(3) { background: linear-gradient(160deg, #3D2A1A 0%, #180D06 100%); }
-.curso-card:nth-child(4) { background: linear-gradient(160deg, #252010 0%, #100D05 100%); }
-.curso-card:nth-child(5) { background: linear-gradient(160deg, #1A2B18 0%, #09120A 100%); }
-.curso-card:nth-child(6) { background: linear-gradient(160deg, #3A2215 0%, #170A05 100%); }
-.curso-card:nth-child(7) { background: linear-gradient(160deg, #2D2418 0%, #130E08 100%); }
+.curso-card:nth-child(7n+1) { background: linear-gradient(160deg, #3B2518 0%, #160C06 100%); }
+.curso-card:nth-child(7n+2) { background: linear-gradient(160deg, #2B3020 0%, #111507 100%); }
+.curso-card:nth-child(7n+3) { background: linear-gradient(160deg, #3D2A1A 0%, #180D06 100%); }
+.curso-card:nth-child(7n+4) { background: linear-gradient(160deg, #252010 0%, #100D05 100%); }
+.curso-card:nth-child(7n+5) { background: linear-gradient(160deg, #1A2B18 0%, #09120A 100%); }
+.curso-card:nth-child(7n+6) { background: linear-gradient(160deg, #3A2215 0%, #170A05 100%); }
+.curso-card:nth-child(7n+0) { background: linear-gradient(160deg, #2D2418 0%, #130E08 100%); }
 
 /* Estado padrão — info no rodapé */
 .curso-card-bottom {
@@ -786,18 +798,26 @@ nav { display: none; }
 @media (max-width: 767px) {
   #curso { padding: 64px 0 0; }
   .curso-header { padding: 0 24px; margin-bottom: 40px; }
-  .curso-cards { height: 460px; }
-  .curso-card { flex: 0 0 82%; }
-  /* No mobile mostra sempre o painel */
+  .curso-cards {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 460px;
+    padding: 0 0 20px;
+  }
+  .curso-track {
+    animation: none !important;
+    padding-left: 20px;
+    gap: 12px;
+  }
+  /* Remove clones no mobile (esconde via CSS) */
+  .curso-track .curso-card[aria-hidden="true"] { display: none; }
+  .curso-card { flex: 0 0 78vw; width: 78vw; }
+  /* No mobile painel sempre visível */
   .curso-card-panel {
     opacity: 1 !important;
     transform: none !important;
   }
-  .curso-card-bottom { opacity: 0 !important; }
-}
-
-@media (min-width: 768px) and (max-width: 1080px) {
-  .curso-card { flex: 0 0 33%; }
+  .curso-card-bottom { display: none; }
 }
 
 /* ── PARA QUEM ── */
@@ -1336,6 +1356,7 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
   </div>
 
   <div class="curso-cards">
+  <div class="curso-track" id="cursoTrack">
 
     <div class="curso-card">
       <span class="curso-card-bg-num">01</span>
@@ -1502,7 +1523,163 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
       </div>
     </div>
 
-  </div>
+    <!-- Duplicatas para loop infinito CSS -->
+    <div class="curso-card" aria-hidden="true">
+      <span class="curso-card-bg-num">01</span>
+      <div class="curso-card-icon">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#F5ECD8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="36" cy="28" r="14"/><circle cx="36" cy="28" r="6"/>
+          <line x1="36" y1="14" x2="36" y2="8"/><line x1="36" y1="42" x2="36" y2="48"/>
+          <line x1="22" y1="28" x2="16" y2="28"/><line x1="50" y1="28" x2="56" y2="28"/>
+          <path d="M28 54 Q36 60 44 54" stroke-dasharray="3 3"/>
+        </svg>
+      </div>
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 01 · Autoconhecimento</span>
+        <div class="curso-card-title">Diagnóstico da Anfitriã</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 01 · Autoconhecimento</span>
+        <div class="curso-card-panel-title">Diagnóstico da Anfitriã</div>
+        <p class="curso-card-panel-desc">Seu ponto de partida. Você entende o seu estilo de receber, seus pontos fortes e o que ainda trava — antes de planejar qualquer coisa.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card" aria-hidden="true">
+      <span class="curso-card-bg-num">02</span>
+      <div class="curso-card-icon">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#F5ECD8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="14" y="16" width="44" height="44" rx="3"/>
+          <line x1="14" y1="28" x2="58" y2="28"/><line x1="26" y1="10" x2="26" y2="22"/>
+          <line x1="46" y1="10" x2="46" y2="22"/><line x1="24" y1="38" x2="34" y2="38"/>
+          <line x1="24" y1="46" x2="48" y2="46"/><line x1="38" y1="38" x2="48" y2="38"/>
+        </svg>
+      </div>
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 02 · Planejamento</span>
+        <div class="curso-card-title">Planner Receber Sem Estresse</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 02 · Planejamento</span>
+        <div class="curso-card-panel-title">Planner Receber Sem Estresse</div>
+        <p class="curso-card-panel-desc">Do convite ao dia da recepção — cada tarefa no momento certo. Você para de improvisar e começa a chegar descansada.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card" aria-hidden="true">
+      <span class="curso-card-bg-num">03</span>
+      <div class="curso-card-icon">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#F5ECD8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="36" cy="34" r="18"/>
+          <path d="M18 34 Q36 20 54 34"/>
+          <line x1="24" y1="56" x2="48" y2="56"/><line x1="36" y1="52" x2="36" y2="56"/>
+          <line x1="20" y1="26" x2="16" y2="20"/><line x1="52" y1="26" x2="56" y2="20"/>
+        </svg>
+      </div>
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 03 · Cardápio</span>
+        <div class="curso-card-title">Guia Cardápio Sem Sofrimento</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 03 · Cardápio</span>
+        <div class="curso-card-panel-title">Guia Cardápio Sem Sofrimento</div>
+        <p class="curso-card-panel-desc">Menu que te liberta da cozinha. Como montar um cardápio que impressiona sem te prender atrás do fogão durante a festa.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card" aria-hidden="true">
+      <span class="curso-card-bg-num">04</span>
+      <div class="curso-card-icon">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#F5ECD8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 28 L16 56 L56 56 L52 28 Z"/>
+          <path d="M28 28 C28 20 44 20 44 28"/>
+          <line x1="28" y1="40" x2="44" y2="40"/><line x1="28" y1="47" x2="44" y2="47"/>
+          <circle cx="36" cy="34" r="2" fill="#F5ECD8"/>
+        </svg>
+      </div>
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 04 · Compras</span>
+        <div class="curso-card-title">Checklist Compra Sem Caos</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 04 · Compras</span>
+        <div class="curso-card-panel-title">Checklist Compra Sem Caos</div>
+        <p class="curso-card-panel-desc">Lista estratégica por categoria. Você entra no mercado com clareza e sai sem esquecer nada — e sem gastar além do necessário.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card" aria-hidden="true">
+      <span class="curso-card-bg-num">05</span>
+      <div class="curso-card-icon">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#F5ECD8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 36 L36 14 L60 36"/>
+          <path d="M20 36 L20 58 L52 58 L52 36"/>
+          <rect x="30" y="44" width="12" height="14" rx="1"/>
+          <line x1="28" y1="30" x2="44" y2="30"/>
+        </svg>
+      </div>
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 05 · Organização</span>
+        <div class="curso-card-title">Checklist Casa Pronta Para Receber</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 05 · Organização</span>
+        <div class="curso-card-panel-title">Checklist Casa Pronta Para Receber</div>
+        <p class="curso-card-panel-desc">Cada ambiente preparado com acolhimento. Sua casa não precisa ser perfeita — precisa estar pronta para receber com intenção.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card" aria-hidden="true">
+      <span class="curso-card-bg-num">06</span>
+      <div class="curso-card-icon">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#F5ECD8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M26 14 L30 42 L36 46 L42 42 L46 14"/>
+          <line x1="22" y1="14" x2="50" y2="14"/><line x1="28" y1="56" x2="44" y2="56"/>
+          <line x1="36" y1="46" x2="36" y2="56"/>
+          <path d="M22 14 Q26 10 30 14"/><path d="M42 14 Q46 10 50 14"/>
+        </svg>
+      </div>
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 06 · A Recepção</span>
+        <div class="curso-card-title">Roteiro Anfitriã Presente</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 06 · A Recepção</span>
+        <div class="curso-card-panel-title">Roteiro Anfitriã Presente</div>
+        <p class="curso-card-panel-desc">Conduza o encontro com leveza. Saiba como receber cada pessoa, manter a energia da casa e ainda curtir cada momento.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+    <div class="curso-card" aria-hidden="true">
+      <span class="curso-card-bg-num">07</span>
+      <div class="curso-card-icon">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#F5ECD8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M44 16 A22 22 0 1 1 22 44 A16 16 0 0 0 44 16 Z"/>
+          <circle cx="52" cy="20" r="2" fill="#F5ECD8" stroke="none"/>
+          <circle cx="58" cy="30" r="1.5" fill="#F5ECD8" stroke="none"/>
+          <circle cx="48" cy="12" r="1" fill="#F5ECD8" stroke="none"/>
+        </svg>
+      </div>
+      <div class="curso-card-bottom">
+        <span class="curso-card-num">Aula 07 · Pós-Recepção</span>
+        <div class="curso-card-title">Plano Depois que a Porta Fecha</div>
+      </div>
+      <div class="curso-card-panel">
+        <span class="curso-card-panel-num">Aula 07 · Pós-Recepção</span>
+        <div class="curso-card-panel-title">Plano Depois que a Porta Fecha</div>
+        <p class="curso-card-panel-desc">Encerre com leveza e gratidão. Como descansar, organizar e já guardar aprendizados para a próxima recepção ser ainda melhor.</p>
+        <span class="curso-card-panel-tag">Ferramenta inclusa</span>
+      </div>
+    </div>
+
+  </div><!-- /curso-track -->
+  </div><!-- /curso-cards -->
 </section>
 
 <!-- PARA QUEM -->
@@ -1696,46 +1873,5 @@ document.querySelectorAll('.acc-btn').forEach(btn => {
 });
 </script>
 
-<script>
-// Auto-scroll carrossel do curso
-(function(){
-  const track = document.querySelector('.curso-cards');
-  if (!track) return;
-
-  // Clona os cards para loop infinito
-  const origCards = [...track.querySelectorAll('.curso-card')];
-  origCards.forEach(function(card) {
-    const clone = card.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    track.appendChild(clone);
-  });
-
-  let pos = 0;
-  let paused = false;
-  const speed = 0.45; // px por frame (~27px/s = confortável para leitura)
-
-  function step() {
-    if (!paused) {
-      pos += speed;
-      const half = track.scrollWidth / 2;
-      if (pos >= half) pos -= half;
-      track.scrollLeft = pos;
-    }
-    requestAnimationFrame(step);
-  }
-
-  // Pausa no hover (desktop)
-  track.addEventListener('mouseenter', function(){ paused = true; });
-  track.addEventListener('mouseleave', function(){ paused = false; });
-
-  // Pausa no touch (mobile) e retoma após 3s
-  track.addEventListener('touchstart', function(){ paused = true; }, { passive: true });
-  track.addEventListener('touchend', function(){
-    setTimeout(function(){ paused = false; }, 3000);
-  }, { passive: true });
-
-  requestAnimationFrame(step);
-})();
-</script>
 </body>
 </html>

@@ -438,32 +438,30 @@ nav { display: none; }
 
 .antes-bubbles {
   position: absolute;
-  bottom: 24px;
-  left: 16px;
-  right: 16px;
+  inset: 20px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: space-evenly;
 }
 
 .antes-bubble {
   display: inline-block;
   align-self: flex-start;
-  background: rgba(245,236,216,0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(245,236,216,0.3);
-  border-radius: 12px 12px 12px 2px;
-  padding: 9px 16px;
+  background: rgba(245,236,216,0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245,236,216,0.35);
+  border-radius: 14px 14px 14px 2px;
+  padding: 13px 22px;
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: clamp(0.78rem, 1.8vw, 0.9rem);
-  color: rgba(245,236,216,0.92);
+  font-size: clamp(0.9rem, 2vw, 1.08rem);
+  color: rgba(245,236,216,0.95);
 }
 
 .antes-bubble:nth-child(even) {
   align-self: flex-end;
-  border-radius: 12px 12px 2px 12px;
+  border-radius: 14px 14px 2px 14px;
 }
 
 .virada-badges {
@@ -517,7 +515,7 @@ nav { display: none; }
 /* ── TRANSFORMAÇÃO ── */
 #virada {
   position: relative;
-  background: url('renata-134.jpg') center 30% / cover no-repeat;
+  background: url('renata-134.jpg') 78% 30% / cover no-repeat;
   background-color: var(--cafe);
   padding: 140px 48px;
   text-align: center;
@@ -557,10 +555,10 @@ nav { display: none; }
 
 #virada .curso-nome {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
   color: var(--dourado);
   font-style: italic;
-  margin-top: 56px;
+  margin-top: 40px;
   font-weight: 400;
 }
 
@@ -1246,8 +1244,6 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
       <span class="virada-badge"><span class="virada-dot"></span>De drink na mão</span>
       <span class="virada-badge"><span class="virada-dot"></span>Presente</span>
     </div>
-    <p>Com cardápio definido, lista na mão e a casa pronta com calma — você não improvisa. Você recebe.</p>
-    <p>Cada detalhe no lugar, na ordem certa. E quando a campainha toca, você está lá — não na cozinha, não na cabeça. Na sua própria festa.</p>
     <p class="curso-nome">Esse é o objetivo do Receber Bem em Casa.</p>
   </div>
 </section>

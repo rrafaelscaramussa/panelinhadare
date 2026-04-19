@@ -348,195 +348,143 @@ nav { display: none; }
   margin: 0 auto;
 }
 
-/* ── ANTES & DEPOIS ── */
+/* ── ANTES ── */
 #antes-depois {
   background: var(--bege);
-  padding: 80px 24px;
+  overflow: hidden;
 }
 
-.ad-inner {
-  max-width: 1080px;
-  margin: 0 auto;
+.antes-inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 56px;
 }
 
-.ad-copy .section-label {
-  margin-bottom: 16px;
+.antes-foto {
+  width: 100%;
+  height: 72vw;
+  min-height: 300px;
+  max-height: 500px;
+  overflow: hidden;
 }
 
-.ad-copy h2 {
+.antes-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+.antes-copy {
+  padding: 56px 24px 72px;
+}
+
+.antes-copy h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--cafe);
   margin-bottom: 20px;
 }
 
-.ad-copy p {
-  font-size: clamp(0.9rem, 1.8vw, 1rem);
+.antes-intro {
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: var(--text-muted);
   line-height: 1.85;
   font-weight: 300;
-  max-width: 420px;
+  margin-bottom: 32px;
 }
 
-.ad-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.ad-card {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  aspect-ratio: 3/4;
+.antes-perguntas {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
+  gap: 14px;
+  margin-bottom: 36px;
 }
 
-/* ANTES */
-.ad-antes {
-  background: url('antes-bg.png') center center / cover no-repeat;
-  background-color: #2A1F17;
-}
-
-.ad-antes::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(20,12,6,0.45) 0%, rgba(20,12,6,0.75) 60%, rgba(20,12,6,0.92) 100%);
-}
-
-.ad-card-header {
-  position: relative;
-  z-index: 2;
+.antes-perguntas li {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.ad-card-tag {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 999px;
-  border: 1px solid;
-}
-
-.ad-antes .ad-card-tag {
-  color: rgba(245,236,216,0.5);
-  border-color: rgba(245,236,216,0.2);
-}
-
-.ad-depois .ad-card-tag {
-  color: rgba(245,236,216,0.9);
-  border-color: rgba(245,236,216,0.5);
-  background: rgba(245,236,216,0.1);
-}
-
-.ad-bubbles {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.ad-bubble {
-  display: inline-block;
-  align-self: flex-start;
-  background: rgba(245,236,216,0.08);
-  border: 1px solid rgba(245,236,216,0.15);
-  border-radius: 12px 12px 12px 2px;
-  padding: 9px 14px;
+  gap: 12px;
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
-  color: rgba(245,236,216,0.7);
-  backdrop-filter: blur(8px);
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  color: var(--cafe);
 }
 
-.ad-bubble:nth-child(even) {
-  align-self: flex-end;
-  border-radius: 12px 12px 2px 12px;
-}
-
-/* DEPOIS */
-.ad-depois {
-  background: url('renata-134.jpg') center top / cover no-repeat;
-}
-
-.ad-depois::before {
+.antes-perguntas li::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(20,12,6,0.2) 0%, rgba(20,12,6,0.75) 65%, rgba(20,12,6,0.92) 100%);
-}
-
-.ad-badges {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.ad-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(245,236,216,0.12);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(245,236,216,0.25);
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: clamp(0.72rem, 1.4vw, 0.82rem);
-  color: rgba(245,236,216,0.95);
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  width: fit-content;
-}
-
-.ad-badge::before {
-  content: '';
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #8BAF7C;
+  background: var(--terracota);
   flex-shrink: 0;
 }
 
+.antes-fechamento {
+  font-size: clamp(0.88rem, 1.8vw, 0.95rem);
+  color: var(--text-muted);
+  line-height: 1.9;
+  font-weight: 300;
+  border-left: 2px solid var(--terracota);
+  padding-left: 16px;
+}
+
 @media (min-width: 768px) {
-  .ad-inner {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
-    align-items: center;
+  .antes-inner {
+    grid-template-columns: 1fr 1fr;
+    min-height: 640px;
+  }
+  .antes-foto {
+    height: 100%;
+    max-height: none;
+  }
+  .antes-copy {
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
-/* ── VIRADA ── */
+/* ── TRANSFORMAÇÃO ── */
 #virada {
-  background: var(--cafe);
+  position: relative;
+  background: url('renata-134.jpg') center 30% / cover no-repeat;
+  background-color: var(--cafe);
   padding: 140px 48px;
   text-align: center;
+  overflow: hidden;
+}
+
+#virada::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15,9,4,0.60) 0%, rgba(15,9,4,0.80) 100%);
 }
 
 .virada-inner {
+  position: relative;
+  z-index: 1;
   max-width: 720px;
   margin: 0 auto;
 }
 
+#virada h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--bege);
+  margin-bottom: 32px;
+}
+
 #virada p {
   font-size: 1.05rem;
-  color: rgba(245,236,216,0.6);
+  color: rgba(245,236,216,0.65);
   line-height: 1.9;
   margin-bottom: 20px;
   font-weight: 300;
@@ -566,27 +514,8 @@ nav { display: none; }
 .renata-img {
   width: 100%;
   aspect-ratio: 3/4;
-  background: var(--stone);
   border-radius: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  position: relative;
-}
-
-.renata-img::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(107,90,74,0.15) 0%, transparent 60%);
-}
-
-.photo-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(107,90,74,0.3);
 }
 
 .renata-copy h2 {
@@ -1222,58 +1151,32 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 </section>
 -->
 
-<!-- ANTES & DEPOIS -->
+<!-- ANTES -->
 <section id="antes-depois">
-  <div class="ad-inner">
-
-    <!-- Copy -->
-    <div class="ad-copy">
-      <span class="section-label">A transformação</span>
-      <div class="divider"></div>
-      <h2>De exausta a anfitriã de verdade.</h2>
-      <p>Não é sobre ter mais tempo ou uma casa maior. É sobre saber exatamente o que fazer, quando fazer — e finalmente estar presente na sua própria mesa.</p>
+  <div class="antes-inner">
+    <div class="antes-foto">
+      <img src="antes-bg.png" alt="">
     </div>
-
-    <!-- Cards -->
-    <div class="ad-cards">
-
-      <!-- ANTES -->
-      <div class="ad-card ad-antes">
-        <div class="ad-card-header">
-          <span class="ad-card-tag">Antes</span>
-        </div>
-        <div class="ad-bubbles">
-          <span class="ad-bubble">O que vou servir?</span>
-          <span class="ad-bubble">Vai dar tempo?</span>
-          <span class="ad-bubble">A casa está boa?</span>
-          <span class="ad-bubble">Vai sair como eu imagino?</span>
-        </div>
-      </div>
-
-      <!-- DEPOIS -->
-      <div class="ad-card ad-depois">
-        <div class="ad-card-header">
-          <span class="ad-card-tag">Depois</span>
-        </div>
-        <div class="ad-badges">
-          <span class="ad-badge">Organizada</span>
-          <span class="ad-badge">Cardápios inteligentes</span>
-          <span class="ad-badge">De drink na mão</span>
-          <span class="ad-badge">Sem estresse</span>
-        </div>
-      </div>
-
+    <div class="antes-copy">
+      <h2>Essa é você hoje?</h2>
+      <p class="antes-intro">Você ama receber — mas quando o convite sai, a cabeça dispara. A semana começa cheia de vontade e termina em correria, cansaço e aquela sensação de que você ficou de fora da própria festa.</p>
+      <ul class="antes-perguntas">
+        <li>O que vou servir?</li>
+        <li>Vai dar tempo?</li>
+        <li>A casa está boa?</li>
+        <li>Vai sair como eu imagino?</li>
+      </ul>
+      <p class="antes-fechamento">Receber bem não deveria ser assim. E não precisa ser.</p>
     </div>
   </div>
 </section>
 
-<!-- VIRADA -->
+<!-- TRANSFORMAÇÃO -->
 <section id="virada">
   <div class="virada-inner">
-    <span class="section-label gold">A virada</span>
-    <div class="divider" style="margin:0 auto 40px;"></div>
-    <p>Imagina chegar no dia da recepção com tudo já resolvido.</p>
-    <p>Quando a campainha toca, você abre a porta com um sorriso de verdade. Porque você seguiu cada etapa e agora pode simplesmente estar presente.</p>
+    <h2>Imagina abrir a porta<br>e estar realmente presente.</h2>
+    <p>Com cardápio definido, lista na mão e a casa pronta com calma — você não improvisa. Você recebe.</p>
+    <p>Cada detalhe no lugar, na ordem certa. E quando a campainha toca, você está lá — não na cozinha, não na cabeça. Na sua própria festa.</p>
     <p class="curso-nome">Esse é o objetivo do Receber Bem em Casa.</p>
   </div>
 </section>
@@ -1282,7 +1185,7 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 <section style="background: var(--bege); padding: 120px 48px;">
 <div id="renata" style="max-width:1080px; margin:0 auto; display:grid; grid-template-columns:400px 1fr; gap:80px; align-items:center;">
   <div class="renata-img">
-    <span class="photo-label">Foto da Renata</span>
+    <img src="renata-123.jpg" alt="Renata Porto" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
   </div>
   <div class="renata-copy">
     <span class="section-label">Quem ensina</span>

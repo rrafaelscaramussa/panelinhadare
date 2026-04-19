@@ -84,30 +84,29 @@ nav {
   height: 100vh;
   min-height: 700px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
-.hero-bg {
+.hero-video {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #3D2F24 0%, #6B5A4A 40%, #8B7A65 70%, #A89880 100%);
-}
-
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(30,20,12,0.92) 0%, rgba(30,20,12,0.5) 40%, rgba(30,20,12,0.2) 70%, rgba(30,20,12,0.1) 100%);
-}
-
-.hero-photo-slot {
-  position: absolute;
-  inset: 0;
-  object-fit: cover;
   width: 100%;
   height: 100%;
-  opacity: 0.55;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(20,14,8,0.35) 0%,
+    rgba(20,14,8,0.25) 40%,
+    rgba(20,14,8,0.65) 80%,
+    rgba(20,14,8,0.85) 100%);
+  z-index: 1;
 }
 
 .hero-content {
@@ -116,50 +115,68 @@ nav {
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 48px 80px;
+  padding: 0 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-label {
-  display: inline-block;
-  font-size: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--dourado);
-  border: 1px solid rgba(196,163,90,0.4);
-  padding: 6px 14px;
+  color: rgba(245,236,216,0.8);
+  background: rgba(245,236,216,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(245,236,216,0.15);
+  padding: 8px 18px;
   border-radius: 20px;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
+}
+
+.hero-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--dourado);
 }
 
 .hero-content h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-size: clamp(3rem, 6.5vw, 6rem);
   font-weight: 400;
   color: #fff;
-  line-height: 1.12;
-  max-width: 760px;
-  margin-bottom: 28px;
-  letter-spacing: -0.01em;
+  line-height: 1.06;
+  max-width: 900px;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
 }
 
 .hero-content h1 em {
   font-style: italic;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.7);
 }
 
 .hero-content p {
   font-size: 1rem;
-  color: rgba(245,236,216,0.65);
-  max-width: 540px;
+  color: rgba(245,236,216,0.6);
+  max-width: 600px;
   line-height: 1.8;
-  margin-bottom: 44px;
+  margin-bottom: 48px;
   font-weight: 300;
+  text-align: center;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -900,7 +917,10 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <span class="hero-label">Receber Bem em Casa</span>
     <h1>Receber bem em casa <em>sem estresse</em> e sem improviso.</h1>
@@ -910,7 +930,7 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
       <a href="#curso" class="btn-ghost">Ver o curso</a>
     </div>
     <p class="hero-urgency">Condições de lançamento até domingo, 26 de abril.</p>
-    <div class="timer">
+    <div class="timer" style="justify-content:center;">
       <div class="timer-unit"><span class="timer-num" id="d1">00</span><span class="timer-lbl">dias</span></div>
       <span class="timer-sep">:</span>
       <div class="timer-unit"><span class="timer-num" id="h1">00</span><span class="timer-lbl">horas</span></div>

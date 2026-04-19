@@ -40,9 +40,9 @@ nav {
   justify-content: space-between;
   padding: 0 48px;
   height: 68px;
-  background: rgba(61,47,36,0.85);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: none;
 }
 
 .nav-logo { height: 34px; width: auto; }
@@ -107,6 +107,16 @@ nav {
     rgba(20,14,8,0.65) 80%,
     rgba(20,14,8,0.85) 100%);
   z-index: 1;
+}
+
+.hero-overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  height: 60px;
+  background: rgba(20,14,8,0.95);
 }
 
 .hero-content {
@@ -922,7 +932,6 @@ footer p { font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(245,236,216,0.
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="hero-label">Receber Bem em Casa</span>
     <h1>Receber bem em casa <em>sem estresse</em> e sem improviso.</h1>
     <p>Tudo o que você precisa fazer, na ordem certa, sem ficar presa na cozinha.</p>
     <div class="hero-actions">

@@ -402,14 +402,15 @@ nav { display: none; }
 
 /* ANTES */
 .ad-antes {
-  background: linear-gradient(145deg, #2A1F17 0%, #1C1208 100%);
+  background: url('antes-bg.png') center center / cover no-repeat;
+  background-color: #2A1F17;
 }
 
 .ad-antes::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 70% at 50% 40%, rgba(180,100,60,0.12) 0%, transparent 70%);
+  background: linear-gradient(to bottom, rgba(20,12,6,0.45) 0%, rgba(20,12,6,0.75) 60%, rgba(20,12,6,0.92) 100%);
 }
 
 .ad-card-header {

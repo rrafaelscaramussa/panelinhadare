@@ -1,0 +1,97 @@
+:root {
+    --primary-green: #415144; 
+    --bg-creme: #F9F7F2;      
+    --text-dark: #2C2C2C;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-creme);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 500px;
+    width: 90%;
+    background: #ffffff;
+    padding: 60px 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    border-top: 6px solid var(--primary-green);
+}
+
+.welcome-text {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-green);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.main-instruction {
+    line-height: 1.4;
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 40px;
+}
+
+.main-instruction strong {
+    color: var(--primary-green);
+    display: block;
+    margin-top: 5px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 18px 20px;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+.btn-whatsapp {
+    background-color: transparent;
+    color: var(--primary-green);
+    border: 1px solid var(--primary-green);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.email-notice {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.75rem;
+    color: #bbb;
+}

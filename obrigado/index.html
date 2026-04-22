@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obrigado! - Receber Bem em Casa</title>
-    
+
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -17,142 +17,40 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1925447888333855');
     fbq('track', 'PageView');
-    fbq('track', 'Purchase', {value: 0.00, currency: 'BRL'}); // Registra a venda no Facebook
+    fbq('track', 'Purchase', {value: 197.00, currency: 'BRL'}); 
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1925447888333855&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- Fontes Elegantes -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --primary-green: #415144; 
-            --bg-creme: #F9F7F2;      
-            --text-dark: #2C2C2C;
-        }
-
+        :root { --primary-green: #415144; --bg-creme: #F9F7F2; --text-dark: #2C2C2C; }
         * { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-creme);
-            color: var(--text-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 500px;
-            width: 90%;
-            background: #ffffff;
-            padding: 60px 30px;
-            border-radius: 4px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 6px solid var(--primary-green);
-        }
-
-        .welcome-text {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-green);
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            margin-top: 0;
-        }
-
-        .main-instruction {
-            line-height: 1.6;
-            font-size: 1.2rem;
-            color: #444;
-            margin-bottom: 40px;
-        }
-
-        .main-instruction strong {
-            color: var(--primary-green);
-            font-weight: 600;
-        }
-
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .btn {
-            text-decoration: none;
-            padding: 18px 20px;
-            border-radius: 2px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-green);
-            color: white;
-            border: 1px solid var(--primary-green);
-        }
-
-        .btn-whatsapp {
-            background-color: transparent;
-            color: var(--primary-green);
-            border: 1px solid var(--primary-green);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
-        }
-
-        .email-notice {
-            margin-top: 30px;
-            font-size: 0.85rem;
-            color: #888;
-            font-style: italic;
-        }
-
-        footer {
-            margin-top: 30px;
-            font-size: 0.75rem;
-            color: #bbb;
-        }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--bg-creme); color: var(--text-dark); display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { max-width: 500px; width: 90%; background: #ffffff; padding: 60px 30px; border-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center; border-top: 6px solid var(--primary-green); }
+        .welcome-text { font-family: 'Playfair Display', serif; color: var(--primary-green); font-size: 2.2rem; margin-bottom: 30px; margin-top: 0; }
+        .main-instruction { line-height: 1.5; font-size: 1.2rem; color: #444; margin-bottom: 40px; }
+        .button-group { display: flex; flex-direction: column; gap: 15px; }
+        .btn { text-decoration: none; padding: 18px 20px; border-radius: 2px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; display: block; }
+        .btn-primary { background-color: var(--primary-green); color: white; border: 1px solid var(--primary-green); }
+        .btn-whatsapp { background-color: transparent; color: var(--primary-green); border: 1px solid var(--primary-green); }
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+        .email-notice { margin-top: 30px; font-size: 0.85rem; color: #888; font-style: italic; }
+        footer { margin-top: 30px; font-size: 0.75rem; color: #bbb; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h2 class="welcome-text">Seja muito bem-vinda!</h2>
-        
-        <p class="main-instruction">
-            Para começar sua jornada,<br>
-            <strong>clique nos botões abaixo:</strong>
-        </p>
-
+        <p class="main-instruction">Para começar sua jornada,<br><strong>clique nos botões abaixo:</strong></p>
         <div class="button-group">
-            <a href="https://forms.gle/jsizgQMYYuSdnF1t6" target="_blank" class="btn btn-primary">
-                1. Responder pesquisa de alunas
-            </a>
-            <a href="https://chat.whatsapp.com/LfY9wNvo6uf8EFIsKTHOPh?mode=gi_t" target="_blank" class="btn btn-whatsapp">
-                2. Entrar na Comunidade no WhatsApp
-            </a>
+            <a href="https://forms.gle/jsizgQMYYuSdnF1t6" target="_blank" class="btn btn-primary">1. Responder pesquisa de alunas</a>
+            <a href="https://chat.whatsapp.com/LfY9wNvo6uf8EFIsKTHOPh?mode=gi_t" target="_blank" class="btn btn-whatsapp">2. Entrar na Comunidade no WhatsApp</a>
         </div>
-
         <p class="email-notice">Os dados de acesso também foram enviados para o seu e-mail.</p>
-        
-        <footer>
-            <p>© 2024 Receber Bem em Casa</p>
-        </footer>
+        <footer><p>© 2024 Receber Bem em Casa</p></footer>
     </div>
-
 </body>
 </html>

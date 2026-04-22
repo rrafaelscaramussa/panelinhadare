@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 *)",
+      "Bash(curl -s \"https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/chat-thumbnails/66a84ecf-0972-40f3-8a4c-15b11d3aee0a/react-project-496dce40-17d2-4122-9b3f-aac9b8a7885c_800w.jpg\" -o /tmp/stillpoint-thumb.jpg)",
+      "Bash(open *)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(curl *)",
+      "Bash(ffmpeg -version)",
+      "Bash(grep -v \"^$\\\\|^[[:space:]]*$\")",
+      "Bash(grep -v \"^$\")",
+      "Bash(git commit *)",
+      "Bash(unzip -o \"mockuuups-free-transparent-iphone-17e.zip\" -d mockup_iphone)",
+      "Bash(ffprobe *)",
+      "Bash(brew install *)",
+      "Bash(npm install *)",
+      "Bash(pip3 install *)",
+      "Bash(git -C \"/Users/rafaelscaramussa/Desktop/panelinha da re\" status)",
+      "Bash(git *)"
+    ]
+  }
+}

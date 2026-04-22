@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação de Oferta - Receber Bem em Casa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cafe: #1a120a;
+      --bege: #f5ecd8;
+      --dourado: #c4a35a;
+      --terracota: #8b4513;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #333;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--cafe);
+    }
+
+    /* Configuração A4 Horizontal */
+    .page {
+      width: 297mm;
+      height: 210mm;
+      background: var(--white);
+      margin: 20px auto;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      page-break-after: always;
+    }
+
+    @media print {
+      body { background: none; }
+      .page { margin: 0; box-shadow: none; }
+      @page { size: A4 landscape; margin: 0; }
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 400; }
+
+    .bg-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 2;
+    }
+
+    .content {
+      position: relative;
+      z-index: 3;
+      height: 100%;
+      padding: 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* LAUDA 1 */
+    .lauda-1 h1 {
+      font-size: 4.5rem;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .lauda-1 h1 span.accent { font-style: italic; color: #a8d5ba; } /* Tom verde leve */
+    .lauda-1 p {
+      font-size: 1.5rem;
+      color: var(--white);
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    /* LAUDA 2 */
+    .lauda-2 .content { align-items: center; text-align: center; justify-content: center; }
+    .lauda-2 h1 { font-size: 3.5rem; color: var(--white); margin-bottom: 40px; }
+    .lauda-2 .bubbles { display: flex; gap: 15px; margin-bottom: 40px; }
+    .lauda-2 .bubble {
+      padding: 12px 25px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      color: var(--white);
+      font-size: 1.1rem;
+    }
+    .lauda-2 .footer-phrase { font-style: italic; color: var(--white); font-size: 1.4rem; font-family: 'Playfair Display', serif; }
+
+    /* LAUDA 3 */
+    .lauda-3 { background: var(--cafe); color: var(--bege); }
+    .lauda-3 .content { padding: 40px; justify-content: flex-start; }
+    .lauda-3 h2 { font-size: 2.5rem; text-align: center; margin-bottom: 10px; }
+    .lauda-3 p.subtitle { text-align: center; margin-bottom: 30px; font-size: 1rem; opacity: 0.8; }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      flex-grow: 1;
+    }
+    .module-card {
+      background: #251b11;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(196,163,90,0.1);
+    }
+    .module-img { height: 120px; width: 100%; object-fit: cover; }
+    .module-info { padding: 12px; }
+    .module-num { font-size: 0.55rem; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; display: block; }
+    .module-title { font-size: 0.9rem; font-family: 'Playfair Display', serif; margin-bottom: 5px; }
+    .module-desc { font-size: 0.65rem; line-height: 1.4; opacity: 0.7; }
+
+    /* LAUDA 4 */
+    .lauda-4 { background: var(--bege); }
+    .lauda-4 .content { 
+      display: grid; 
+      grid-template-columns: 1.2fr 0.8fr; 
+      gap: 50px; 
+      align-items: center;
+    }
+    .lauda-4 h2 { font-size: 3rem; margin-bottom: 30px; }
+    .tool-list { list-style: none; }
+    .tool-list li {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .tool-list li::before {
+      content: '✓';
+      color: var(--terracota);
+      font-weight: bold;
+    }
+    .mockup-container { position: relative; text-align: center; }
+    .mockup-container img { width: 100%; max-width: 280px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2)); }
+    .mockup-label {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cafe);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    /* LAUDA 5 */
+    .lauda-5 { background: var(--bege); }
+    .lauda-5 .content { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 60px; 
+      align-items: center;
+    }
+    .lauda-5 h2 { font-size: 3rem; margin-bottom: 20px; }
+    .lauda-5 p { font-size: 1.2rem; line-height: 1.6; }
+    .community-img { width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+
+    /* LAUDA 6 */
+    .lauda-6 { background: var(--cafe); color: var(--bege); }
+    .lauda-6 .content { 
+      display: grid; 
+      grid-template-columns: 1fr 1.2fr; 
+      gap: 80px; 
+      align-items: center;
+    }
+    .qr-side { text-align: center; }
+    .qr-code { 
+      background: white; 
+      padding: 20px; 
+      border-radius: 20px; 
+      display: inline-block; 
+      margin-bottom: 20px;
+    }
+    .qr-code img { width: 220px; height: 220px; display: block; }
+    .qr-text { font-size: 1.1rem; color: var(--bege); opacity: 0.8; }
+    
+    .offer-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(196,163,90,0.2);
+      padding: 40px;
+      border-radius: 30px;
+      text-align: center;
+    }
+    .offer-title { font-size: 2.5rem; margin-bottom: 10px; }
+    .offer-price-old { text-decoration: line-through; opacity: 0.4; font-size: 1.2rem; margin-bottom: 10px; }
+    .offer-price-main { font-size: 1.5rem; margin-bottom: 5px; }
+    .offer-price-val { font-size: 4rem; color: var(--dourado); font-weight: 500; font-family: 'Montserrat', sans-serif; }
+    .offer-price-vista { opacity: 0.6; font-size: 1.1rem; margin-top: 10px; }
+    
+    .offer-items {
+      text-align: left;
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .offer-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; opacity: 0.9; }
+    .offer-item::before { content: '✓'; color: var(--dourado); }
+
+  </style>
+</head>
+<body>
+
+  <!-- LAUDA 1 -->
+  <section class="page lauda-1">
+    <img src="renata-163.webp" class="bg-image" alt="">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Receber bem em casa<br><span class="accent">sem estresse</span> e sem improviso.</h1>
+      <p>Tudo o que você precisa fazer, na ordem certa, sem ficar presa na cozinha.</p>
+    </div>
+  </section>
+
+  <!-- LAUDA 2 -->
+  <section class="page lauda-2">
+    <img src="renata-134.jpg" class="bg-image" alt="">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Agora, imagina abrir a porta<br>e estar realmente presente.</h1>
+      <div class="bubbles">
+        <span class="bubble">Organizada</span>
+        <span class="bubble">Sem estresse</span>
+        <span class="bubble">De drink na mão</span>
+        <span class="bubble">Presente</span>
+      </div>
+      <div class="footer-phrase">Esse é o objetivo do Receber Bem em Casa.</div>
+    </div>
+  </section>
+
+  <!-- LAUDA 3 -->
+  <section class="page lauda-3">
+    <div class="content">
+      <h2>O nosso jeito de Receber Bem em Casa.</h2>
+      <p class="subtitle">Do convite ao pós-recepção: tudo mapeado na ordem certa.</p>
+      
+      <div class="modules-grid">
+        <div class="module-card">
+          <img src="capa_diagnostico_editorial.webp" class="module-img" alt="">
+          <div class="module-info">
+            <span class="module-num">Aula 01 · Autoconhecimento</span>
+            <div class="module-title">Diagnóstico da Anfitriã</div>
+            <p class="module-desc">Seu ponto de partida. Você entende o seu estilo de receber e o que ainda trava.</p>
+          </div>
+        </div>
+        <div class="module-card">
+          <img src="card_02_planner.webp" class="module-img" alt="">
+          <div class="module-info">
+            <span class="module-num">Aula 02 · Planejamento</span>
+            <div class="module-title">Planner Receber Sem Estresse</div>
+            <p class="module-desc">Do convite ao dia da recepção — cada tarefa no momento certo.</p>
+          </div>
+        </div>
+        <div class="module-card">
+          <img src="card_03_cardapio.webp" class="module-img" alt="">
+          <div class="module-info">
+            <span class="module-num">Aula 03 · Cardápio</span>
+            <div class="module-title">Guia Cardápio Sem Sofrimento</div>
+            <p class="module-desc">Menu que te liberta da cozinha. Impressione sem ficar presa no fogão.</p>
+          </div>
+        </div>
+        <div class="module-card">
+          <img src="card_04_checklist_compras.webp" class="module-img" alt="">
+          <div class="module-info">
+            <span class="module-num">Aula 04 · Compras</span>
+            <div class="module-title">Checklist Compra Sem Caos</div>
+            <p class="module-desc">Lista estratégica por categoria. Saia do mercado sem esquecer nada.</p>
+          </div>
+        </div>
+        <div class="module-card">
+          <img src="card_05_casa_pronta.webp" class="module-img" alt="">
+          <div class="module-info">
+            <span class="module-num">Aula 05 · Organização</span>
+            <div class="module-title">Checklist Casa Pronta</div>
+            <p class="module-desc">Cada ambiente preparado com acolhimento e intenção.</p>
+          </div>
+        </div>
+        <div class="module-card">
+          <img src="card_06_anfitria_presente.webp" class="module-img" alt="">
+          <div class="module-info">
+            <span class="module-num">Aula 06 · A Recepção</span>
+            <div class="module-title">Roteiro Anfitriã Presente</div>
+            <p class="module-desc">Conduza o encontro com leveza e curta cada momento.</p>
+          </div>
+        </div>
+        <div class="module-card">
+          <img src="card_07_depois_da_porta.webp" class="module-img" alt="">
+          <div class="module-info">
+            <span class="module-num">Aula 07 · Pós-Recepção</span>
+            <div class="module-title">Plano Depois da Porta Fecha</div>
+            <p class="module-desc">Encerre com leveza e guarde aprendizados para a próxima.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAUDA 4 -->
+  <section class="page lauda-4">
+    <div class="content">
+      <div class="tools-side">
+        <h2>7 Ferramentas Práticas</h2>
+        <ul class="tool-list">
+          <li>Diagnóstico da Anfitriã</li>
+          <li>Planner Receber Sem Estresse</li>
+          <li>Guia Cardápio Sem Sofrimento</li>
+          <li>Checklist Compra Sem Caos</li>
+          <li>Checklist Casa Pronta Para Receber</li>
+          <li>Roteiro Anfitriã Presente</li>
+          <li>Plano Depois que a Porta Fecha</li>
+        </ul>
+      </div>
+      <div class="mockup-container">
+        <img src="iphone-mockup.webp" alt="">
+        <div class="mockup-label">Acesso na palma da mão</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAUDA 5 -->
+  <section class="page lauda-5">
+    <div class="content">
+      <div class="community-side">
+        <h2>E tem mais um presente para você.</h2>
+        <p>Ao entrar no curso, você acessa a <strong>Comunidade Receber Bem em Casa</strong> no WhatsApp — um espaço para tirar dúvidas, compartilhar suas recepções e se inspirar com outras anfitriãs.</p>
+      </div>
+      <div class="community-img-container">
+        <img src="comunidade-whatsapp.png" class="community-img" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- LAUDA 6 -->
+  <section class="page lauda-6">
+    <div class="content">
+      <div class="qr-side">
+        <div class="qr-code">
+          <!-- Gerando QR Code via API pública do Google Charts -->
+          <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=https%3A%2F%2Fcheckout.nexano.com.br%2Fcheckout%2Fcmnqcrw6r0oiz1yo6jbglrex4%3Foffer%3DBK4YS0Z%26utm_campaign%3Drbcf01abril26%26utm_content%3Dqrcode%26utm_medium%3Dqrcode%26utm_source%3Dconversa&choe=UTF-8" alt="QR Code">
+        </div>
+        <p class="qr-text">Aponte a câmera para<br>garantir sua vaga</p>
+      </div>
+      
+      <div class="offer-side">
+        <div class="offer-card">
+          <h2 class="offer-title">Receber Bem em Casa</h2>
+          <p style="opacity: 0.7; margin-bottom: 20px;">Acesso ao curso + todos os bônus inclusos</p>
+          
+          <div class="offer-price-old">R$ 297</div>
+          <div class="offer-price-main">12x de <span class="offer-price-val">R$ 12,99</span></div>
+          <div class="offer-price-vista">ou R$ 127 à vista</div>
+
+          <div class="offer-items">
+            <div class="offer-item">7 aulas em vídeo</div>
+            <div class="offer-item">Diagnóstico da Anfitriã</div>
+            <div class="offer-item">Planner Receber Sem Estresse</div>
+            <div class="offer-item">Guia Cardápio Sem Sofrimento</div>
+            <div class="offer-item">Checklist Compra Sem Caos</div>
+            <div class="offer-item">Checklist Casa Pronta Para Receber</div>
+            <div class="offer-item">Roteiro Anfitriã Presente</div>
+            <div class="offer-item">Plano Depois que a Porta Fecha</div>
+            <div class="offer-item">Comunidade exclusiva no WhatsApp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
